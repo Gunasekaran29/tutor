@@ -1,0 +1,48 @@
+clear<style>
+    h1{
+        text-align: center;
+        background-color: rgb(252, 228, 198);
+        color: white;
+    }
+    button{
+        position: absolute;
+        background-color: red;
+        color: white;
+        border-radius: 25%;
+        width: 50px;
+        height: 50px;
+        font-size: 40px;
+        bottom: 50px;
+        right: 50px;
+    }
+    #in{
+        margin: 0px 20px 10px 20px;
+        width: 600px;
+        padding: 20px;
+        font-size: 20px;
+        background-color: aliceblue;
+    }
+    ul li{
+        list-style-type: none;
+        font-size: 20px;
+    }
+</style>
+<h1>TODO List</h1>
+<button onclick="add()">+</button>
+<input type="text" placeholder= "Enter Your tasks" id="in">
+<ul>
+</ul>
+<script>
+    //get input,ul
+    var input = document.getElementById("in")
+    var list = document.querySelector("ul")
+    function add(){
+        var list = document.querySelector("ul")
+        var li = document.createElement("li")
+        li.innerHTML =  "<input type='checkbox' onclick='del(event)'>  "+input.value
+        list.append(li)
+    }
+    function del(event){
+        event.target.parentElement.remove()
+    }
+</script>
