@@ -5,8 +5,11 @@
     }
     h1{
         text-align: center;
-        background-color: rgb(252, 228, 198);
-        color: white;
+        background-color: #ffa8B6;
+        color: black;
+        border: 2px solid black;
+        display: block;
+        padding: 5px;
     }
     button{
         position: absolute;
@@ -24,11 +27,8 @@
         border-radius: 25%;
     }
     #in{
-        position: absolute;
-        top: 70px;
-        left: 20px;
-        right: 20px;
         padding: 20px;
+        width: 100%;
         font-size: 20px;
         background-color: aliceblue;
     }
@@ -39,29 +39,40 @@
         padding: 0px;
     }
     ul{
-        position: absolute;
-        top: 120px;
         padding: 10px;
         margin: 10px;
     }
     h4{
         display: inline;
     }
+    #task{
+        margin-top: 20px;
+    }
 </style>
 <h1>TODO List</h1>
 <input type="text" placeholder= "Enter Your tasks" id="in">
 <button onclick="add()">+</button>
 <ul></ul>
-<ul></ul>
+<h1 id="task">Task Done</h1>
+<ul id="ul"></ul>
 <script>
     //get input,ul
     var input = document.getElementById("in")
     var list = document.querySelector("ul")
     function add(){
-        var list = document.querySelector("ul")
-        var li = document.createElement("li")
-        li.innerHTML =  "<input type='checkbox' onclick='del(event)'>  "+"<h4>" +input.value + "</h4>"
+        let list = document.querySelector("ul")
+        let li = document.createElement("li")
+        li.innerHTML =  "<input type='checkbox' id='checked' onclick='rem(event)'>  "+"<h4>" +input.value + "</h4>"
         list.append(li)
     }
-    
+    function rem(event){
+        let list = document.getElementById("ul")
+        let li = document.createElement("li")
+        li.innerHTML =  "<input type='checkbox' id='checked' checked onclick='del(event)'>  "+"<h4>" +input.value + "</h4>"
+        list.append(li)
+        event.target.parentElement.remove()
+        }
+    function del(event){
+        event.target.parentElement.remove()
+    }
 </script>
