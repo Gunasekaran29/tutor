@@ -1,4 +1,8 @@
 <style>
+    
+    body{
+        background-color: #51e2f5;
+    }
     h1{
         text-align: center;
         background-color: rgb(252, 228, 198);
@@ -6,22 +10,24 @@
     }
     button{
         position: absolute;
-        top: 70px;
         right: 20px;
-        background-color: red;
-        color: white;
-        border-radius: 25%;
+        bottom: 20px;
         width: 60px;
         height: 60px;
         font-size: 40px;
         cursor: pointer;
+        border-radius: 25%;
+    }
+    button:hover{
+        background-color: red;
+        color: white;
+        border-radius: 25%;
     }
     #in{
         position: absolute;
         top: 70px;
         left: 20px;
         right: 20px;
-        margin: 0px 80px 10px 20px;
         padding: 20px;
         font-size: 20px;
         background-color: aliceblue;
@@ -35,14 +41,18 @@
     ul{
         position: absolute;
         top: 120px;
+        padding: 10px;
+        margin: 10px;
+    }
+    h4{
+        display: inline;
     }
 </style>
 <h1>TODO List</h1>
 <input type="text" placeholder= "Enter Your tasks" id="in">
 <button onclick="add()">+</button>
-
-<ul>
-</ul>
+<ul></ul>
+<ul></ul>
 <script>
     //get input,ul
     var input = document.getElementById("in")
@@ -50,10 +60,8 @@
     function add(){
         var list = document.querySelector("ul")
         var li = document.createElement("li")
-        li.innerHTML =  "<input type='checkbox' onclick='del(event)'>  "+input.value
+        li.innerHTML =  "<input type='checkbox' onclick='del(event)'>  "+"<h4>" +input.value + "</h4>"
         list.append(li)
     }
-    function del(event){
-        event.target.parentElement.remove()
-    }
+    
 </script>
